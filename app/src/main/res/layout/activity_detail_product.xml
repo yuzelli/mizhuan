@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.ProductDetailActivity">
+
+    <include
+        android:id="@+id/include_common_topbar"
+        layout="@layout/include_common_topbar"/>
+
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/icon_back"
+        android:layout_above="@+id/v_line"
+        android:layout_below="@+id/include_common_topbar"
+        android:scaleType="fitXY" />
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/shallowWhite"
+        android:layout_above="@+id/bt_turn_friendly"/>
+
+    <Button
+        android:id="@+id/bt_turn_friendly"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_corner_login"
+        android:text="@string/turn_friend"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white" />
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.GoLinkActivity">
+
+    <include layout="@layout/include_common_topbar"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:hint="@string/link_hint"
+        android:layout_margin="10dp"
+        android:background="@color/greyWhite"
+        android:padding="5dp"
+        android:layout_height="100pt" />
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_corner_login"
+        android:text="@string/search_product"
+        android:textColor="@color/white" />
+</LinearLayout>

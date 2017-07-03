@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">米赚</string>
+    <string name="search_product">搜索商品</string>
+    <string name="back">返回</string>
+
+
+    <string name="featured">精选</string>
+    <string name="tool">转链工具</string>
+    <string name="quanhou">券后</string>
+    <string name="yongjin">佣金</string>
+    <string name="earn">赚</string>
+    <string name="categoty">分类</string>
+
+    <string name="user_register">用户注册</string>
+    <string name="user_login">用户登录</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="phone">手机号</string>
+    <string name="password">密码</string>
+    <string name="agree">我已阅读并同意米赚</string>
+    <string name="protocol"><u>《用户服务协议》</u></string>
+
+    <string name="confirm_password">确认密码</string>
+    <string name="verification_code">验证码</string>
+    <string name="send_verification_code">发送验证码</string>
+
+    <string name="new_teach">新手教程</string>
+    <string name="turn_friend">转发到朋友圈赚钱</string>
+
+    <string name="link_hint">复制商品链接到此，即可一键生成属于自己推广文案，自己或者好友通过此文案购买即可获得佣金。</string>
+
+</resources>

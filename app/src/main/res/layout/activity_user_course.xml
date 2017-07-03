@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.NewCourseActivity">
+
+    <include layout="@layout/include_common_topbar"/>
+
+    <WebView
+        android:id="@+id/wv_course"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

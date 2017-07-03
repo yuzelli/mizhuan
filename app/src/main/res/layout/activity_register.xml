@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.RegisterActivity">
+
+    <include layout="@layout/include_common_topbar" />
+
+    <RelativeLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_user_phone"
+            android:layout_width="fill_parent"
+            android:inputType="phone"
+            android:layout_height="50dp"
+            android:hint="@string/phone" />
+
+        <LinearLayout
+            android:id="@+id/ll_verification_code"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/et_user_phone"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_verification_code"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="@string/verification_code" />
+
+            <Button
+                android:id="@+id/btn_sendSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_corner_button"
+                android:text="@string/send_verification_code"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/ll_verification_code"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/et_confirm_password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/et_password"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/et_confirm_password"
+            android:background="@drawable/shape_corner_login"
+            android:text="@string/register"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_login"
+            android:layout_centerHorizontal="true">
+
+            <CheckBox
+                android:id="@+id/cb_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agree" />
+
+            <TextView
+                android:id="@+id/tv_user_protocol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:autoLink="all"
+                android:textColor="@color/green"
+                android:text="@string/protocol" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,8 @@
+/build
+build.gradle
+*.idea
+
+app/build.gradle
+build.gradle
+gradle/wrapper/gradle-wrapper.properties
+

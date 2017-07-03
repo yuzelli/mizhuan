@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mo_gu_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.MoGuLoginActivity">
+<!--  <WebView
+      android:id="@+id/web_mogu"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+  </WebView>-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:orientation="vertical">
+  <EditText
+      android:id="@+id/et_uuid"
+      android:layout_width="fill_parent"
+      android:layout_height="50dp"
+      android:hint="蘑菇街id"
+      android:inputType="number" />
+  <Button
+      android:id="@+id/bt_login"
+      android:layout_width="fill_parent"
+      android:layout_height="50dp"
+      android:background="@drawable/shape_corner_login"
+      android:text="@string/login"
+      android:textColor="@color/white" />
+</LinearLayout>
+
+</RelativeLayout>

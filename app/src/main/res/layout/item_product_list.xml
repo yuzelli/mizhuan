@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:id="@+id/img_project"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:padding="5pt"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_tool" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:padding="5pt"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="2"
+            android:ems="10"
+            android:textSize="15dp"
+            android:text=""
+            android:textColor="@color/deepBlack" />
+
+        <LinearLayout
+            android:layout_marginTop="2pt"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/shallowWhite"
+                android:textSize="@dimen/font_size"
+                android:text="@string/quanhou"/>
+
+            <TextView
+                android:id="@+id/tv_salePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/yellow"
+                android:textSize="20dp"
+                android:text="¥90.90"/>
+
+            <TextView
+                android:id="@+id/tv_org_price"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size"
+                android:layout_height="wrap_content"
+                android:textColor="@color/shallowWhite"
+                android:text="12.20"/>
+
+            <ImageView
+                android:id="@+id/iv_link_tool"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_ticket" />
+
+            <TextView
+                android:id="@+id/tv_quan"
+                android:layout_width="wrap_content"
+                android:textColor="@color/shallowWhite"
+                android:textSize="@dimen/font_size"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:text="10元"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="2pt"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/shallowWhite"
+                android:textSize="@dimen/font_size"
+                android:text="@string/yongjin"/>
+
+            <TextView
+                android:id="@+id/tv_percentage"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:width="40dp"
+                android:textColor="@color/red"
+                android:text="30%"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/shallowWhite"
+                android:textSize="@dimen/font_size"
+                android:layout_height="wrap_content"
+                android:text="@string/earn"/>
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/shallowWhite"
+                android:text="4.85元"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

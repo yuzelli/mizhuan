@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.LoginActivity">
+
+
+    <include layout="@layout/include_common_topbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/user_phone"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:inputType="phone"
+            android:hint="@string/phone" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_corner_login"
+            android:text="@string/login"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</RelativeLayout>

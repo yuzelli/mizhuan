@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greyWhite"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/yellow">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:layout_marginTop="5pt"
+            android:layout_weight="1"
+            android:background="@drawable/shape_corner_down">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="3pt"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_search" />
+
+            <EditText
+                android:id="@+id/searchEdit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawableLeft="@drawable/shape_corner_down"
+                android:ems="10"
+                android:hint="@string/search_product"
+                android:labelFor="@+id/searchEdit"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:text="搜索"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_top"
+        android:layout_width="fill_parent"
+        android:layout_height="2pt"
+        android:layout_below="@+id/ll_search"
+        android:background="@color/greyWhite"></View>
+
+    <LinearLayout
+        android:id="@+id/ll_category"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v_top"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_featured"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_sift_tool"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_featured" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_sift_tool"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:focusableInTouchMode="true"
+                android:text="@string/featured"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_right_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_category"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_categoty"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_category"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_categoty"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:focusableInTouchMode="true"
+                android:text="@string/categoty"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_right_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_link_tool"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_link_tool"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_tool" />
+
+            <TextView
+                android:id="@+id/tv_link_tool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_link_tool"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:focusableInTouchMode="true"
+                android:text="@string/tool"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_right_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_middle"
+        android:layout_width="fill_parent"
+        android:layout_height="2pt"
+        android:layout_below="@+id/ll_category"
+        android:background="@color/greyWhite"/>
+
+    <LinearLayout
+        android:id="@+id/ll_user_teach"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v_middle"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="2pt"
+            android:layout_height="fill_parent"
+            android:background="@color/yellow"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/new_teach"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_right_size" />
+    </LinearLayout>
+
+</RelativeLayout>
