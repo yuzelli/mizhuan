@@ -23,11 +23,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.Request;
 
 /**
@@ -102,7 +103,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     if (timer!=null) {
                         timer = null;
                     }
-                     actionSMSTimer();
+                    sendSMSAction();
                 }
                 break;
             case R.id.bt_login:
@@ -118,6 +119,23 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
 
         }
+    }
+
+    private void sendSMSAction() {
+        String url = ConstantsUtils.ADDRESS_URL + ConstantsUtils.SEND_SMS;
+        Map<String,String> map = new HashMap<>();
+        map.put("phone",etUserPhone.getText().toString().trim());
+        OkHttpClientManager.getAsync(OkHttpClientManager.attachHttpGetParams(url, map), new OkHttpClientManager.DataCallBack() {
+            @Override
+            public void requestFailure(Request request, IOException e) {
+                showToast("发送验证码失败！");
+            }
+
+            @Override
+            public void requestSuccess(String result) throws Exception {
+                 actionSMSTimer();
+            }
+        });
     }
 
 
@@ -138,7 +156,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private void doLoginAction() {
         String phone = etUserPhone.getText().toString().trim();
-        String Code = etVerificationCode.getText().toString().trim();
+        String code = etVerificationCode.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
         if (!OtherUtils.isPhoneEnable(phone)){
@@ -148,9 +166,12 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         if (!password.equals(confirmPassword)){
             showToast("两次输入不一致！");
             return;
+        }if (!code.equals("")){
+            showToast("请输入验证码！");
+            return;
         }
 
-        OkHttpClientManager.getInstance().postJson(ConstantsUtils.ADDRESS_URL + ConstantsUtils.USERINFO_CREATE, UserInfo.getRegister("未设置",Long.valueOf(phone), password,confirmPassword), new OkHttpClientManager.DataCallBack() {
+        OkHttpClientManager.getInstance().postJson(ConstantsUtils.ADDRESS_URL + ConstantsUtils.USERINFO_CREATE, UserInfo.getRegister("未设置",Long.valueOf(phone), password,confirmPassword,Integer.valueOf(code)), new OkHttpClientManager.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
                 Log.d("--RegisterActivity-->", request.toString());

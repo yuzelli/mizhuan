@@ -48,7 +48,9 @@ public class LoginActivity extends BaseActivity {
     private TextView tv_center;
     private TextView tv_right;
     private LoginHander handler;
-private Context context;
+     private Context context;
+    private String phone;
+    private String password;
     @Override
     protected int layoutInit() {
         return R.layout.activity_login;
@@ -91,8 +93,8 @@ private Context context;
     }
 
     private void doLogin() {
-        String phone = userPhone.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
+         phone = userPhone.getText().toString().trim();
+         password = etPassword.getText().toString().trim();
         if (!OtherUtils.isPhoneEnable(phone)){
             showToast("手机号输入不合法！");
             return;
@@ -129,7 +131,8 @@ private Context context;
                         int err_no = json.optInt("err_no");
                         switch (err_no) {
                             case 0:
-                                SharePreferencesUtil.saveObject(context,ConstantsUtils.SP_SAVE_USERINFO,new UserInfo(json.optInt("data")));
+
+                                SharePreferencesUtil.saveObject(context,ConstantsUtils.SP_SAVE_USERINFO,new UserInfo(Long.valueOf(phone),password ,json.optInt("data")));
                                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                                 break;
                             case 1:
@@ -137,7 +140,7 @@ private Context context;
                                 break;
                             case 2:
                                 showToast("需要绑定蘑菇街！");
-                                SharePreferencesUtil.saveObject(context,ConstantsUtils.SP_SAVE_USERINFO,new UserInfo(json.optInt("data")));
+                                SharePreferencesUtil.saveObject(context,ConstantsUtils.SP_SAVE_USERINFO,new UserInfo(Long.valueOf(phone),password ,json.optInt("data")));
                                 startActivity(new Intent(LoginActivity.this,MoGuLoginActivity.class));
                                 break;
                             default:

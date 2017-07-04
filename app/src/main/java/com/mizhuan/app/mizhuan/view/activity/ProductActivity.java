@@ -17,12 +17,14 @@ import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.mizhuan.app.mizhuan.R;
+import com.mizhuan.app.mizhuan.adapter.ProductAdapter;
 import com.mizhuan.app.mizhuan.bean.Product;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
 import com.mizhuan.app.mizhuan.utils.CommonAdapter;
 import com.mizhuan.app.mizhuan.utils.GsonUtils;
 import com.mizhuan.app.mizhuan.utils.ViewHolder;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 
 import org.json.JSONObject;
 
@@ -60,10 +62,10 @@ public class ProductActivity extends BaseActivity{
 
     private ProductHandler handler;
 
-    private List<Product.DataBean> productDatas;
+    private ArrayList<Product.DataBean> productDatas;
     private int page = 1;
     private Context context;
-    private CommonAdapter<Product.DataBean> adapter;
+    private ProductAdapter adapter;
     private Boolean seachFlag = false;
 
 private String seach;
@@ -189,26 +191,30 @@ private String seach;
      */
     private void doUpdataListView() {
 
-         adapter =   new CommonAdapter<Product.DataBean>(context,productDatas,R.layout.item_product_list) {
-            @Override
-            public void convert(ViewHolder helper, Product.DataBean item, int position) {
-                helper.setImageByUrl(R.id.img_project,item.getImage());
-                helper.setText(R.id.tv_title,item.getTitle());
-                helper.setText(R.id.tv_salePrice,"¥"+item.getSaleprice());
-                helper.setText(R.id.tv_org_price,"¥"+item.getDiscountPrice());
-                TextView tv = helper.getView(R.id.tv_org_price);
-                tv.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );
-                helper.setText(R.id.tv_quan,"¥"+item.getCutPrice());
-                helper.setText(R.id.tv_money,item.getSaleprice()*0.3+"元");
-            }
-        };
+//         adapter =   new CommonAdapter<Product.DataBean>(context,productDatas,R.layout.item_product_list) {
+//            @Override
+//            public void convert(ViewHolder helper, Product.DataBean item, int position) {
+//                helper.getView(R.id.img_project).setTag(item.getImage());
+//                helper.setImageResource(R.id.img_project,R.drawable.def2);
+//                helper.setImageByUrl(R.id.img_project,item.getImage());
+//                helper.setText(R.id.tv_title,item.getTitle());
+//                helper.setText(R.id.tv_salePrice,"¥"+item.getSaleprice());
+//                helper.setText(R.id.tv_org_price,"¥"+item.getDiscountPrice());
+//                TextView tv = helper.getView(R.id.tv_org_price);
+//                tv.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );
+//                helper.setText(R.id.tv_quan,"¥"+item.getCutPrice());
+//                helper.setText(R.id.tv_money,item.getSaleprice()*0.3+"元");
+//            }
+//        };
+        adapter=  new ProductAdapter(productDatas,context);
 
         lvProduct.setAdapter(adapter);
+
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context,ProductDetailActivity.class);
-                intent.putExtra("TradeItemEsc",productDatas.get(position).getTradeItemEsc());
+                intent.putExtra("TradeItemEsc",productDatas.get(position+1).getTradeItemEsc());
                 startActivity(intent);
             }
         });
