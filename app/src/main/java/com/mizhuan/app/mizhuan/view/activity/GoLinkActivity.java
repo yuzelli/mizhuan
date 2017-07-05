@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mizhuan.app.mizhuan.R;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 
 /**
  * 转链工具
@@ -24,6 +25,7 @@ public class GoLinkActivity extends BaseActivity {
 
     @Override
     protected void binEvent() {
+        ActivityCollectorUtil.addActivity(this);
         iv_left = (ImageView) findViewById(R.id.iv_left);
         tv_center = (TextView) findViewById(R.id.tv_center);
         tv_right = (TextView) findViewById(R.id.tv_right);

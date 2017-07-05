@@ -13,6 +13,7 @@ import com.mizhuan.app.mizhuan.bean.Product;
 import com.mizhuan.app.mizhuan.bean.UserInfo;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.mizhuan.app.mizhuan.utils.SharePreferencesUtil;
 
 import org.json.JSONObject;
@@ -43,10 +44,13 @@ public class MoGuLoginActivity extends BaseActivity {
 
     @Override
     protected void binEvent() {
-//        webMogu.loadUrl("http://h5.mogujie.com/user-process/login.html");
+//        webMogu.loadUrl("http://h5.mogujie.com/user-process/login.html?redirect_url=http%3A%2F%2Fh5.mogujie.com%2Fpersonal%2Fpersonal.html%3Fmt%3D12.4604.r98160.4583%26acm%3D3.mce.1_10_19wsq.4604.0.zmryYqof4AZay.m_231177-pos_3-mf_4537_485521%26ptp%3Dm1._mf1_1239_4537._keywor");
 //
+//        //启用支持javascript
+//        WebSettings settings = webMogu.getSettings();
+//        settings.setJavaScriptEnabled(true);
 //
-//        // 设置WebView的客户端
+//        // 设置WebView的客户端  // 设置WebView的客户端
 //        webMogu.setWebViewClient(new WebViewClient() {
 //            @Override
 //            public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -54,14 +58,37 @@ public class MoGuLoginActivity extends BaseActivity {
 //            }
 //
 //            @Override
+//            public void onLoadResource(WebView view, String url) {
+//                // 查看跳转页面
+//                if (url.contains("http://union.mogujie.com/tools/my/")) {
+//                    view.stopLoading();
+//                    view.loadUrl("http://union.mogujie.com/effect/cpsUser/getCpsUserInfo");
+//                    //todo 1、加载处理的数据
+//                    Toast.makeText(MoGuLoginActivity.this,"成功",Toast.LENGTH_LONG).show();
+//                    //todo 2、保存获取数据
+//                    //todo 3、直接跳转到主界面
+//                }
+//
+//                super.onLoadResource(view, url);
+//            }
+//
+//            @Override
+//            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+//                super.onReceivedError(view, request, error);
+//            }
+//
+//            @Override
 //            public void onPageFinished(WebView view, String url) {
 //                super.onPageFinished(view, url);
 //            }
+//
+//            @Override
+//            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+//                super.onPageStarted(view, url, favicon);
+//            }
+//
 //        });
-//        //启用支持javascript
-//        WebSettings settings = webMogu.getSettings();
-//        settings.setJavaScriptEnabled(true);
-
+        ActivityCollectorUtil.addActivity(this);
         context = this;
     }
 

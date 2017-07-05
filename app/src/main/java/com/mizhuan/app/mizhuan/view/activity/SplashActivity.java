@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.mizhuan.app.mizhuan.R;
 import com.mizhuan.app.mizhuan.bean.UserInfo;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.mizhuan.app.mizhuan.utils.SharePreferencesUtil;
 
 import butterknife.BindView;
@@ -26,7 +27,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void binEvent() {
         context = this;
-
+        ActivityCollectorUtil.addActivity(this);
         imgIcon.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -17,6 +17,7 @@ import com.mizhuan.app.mizhuan.R;
 import com.mizhuan.app.mizhuan.bean.UserInfo;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.mizhuan.app.mizhuan.utils.OtherUtils;
 
 import org.json.JSONException;
@@ -64,6 +65,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void binEvent() {
+        ActivityCollectorUtil.addActivity(this);
         handler = new RegisterHandler();
         iv_left = (ImageView) findViewById(R.id.iv_left);
         tv_center = (TextView) findViewById(R.id.tv_center);
@@ -166,7 +168,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         if (!password.equals(confirmPassword)){
             showToast("两次输入不一致！");
             return;
-        }if (!code.equals("")){
+        }if (code.equals("")){
             showToast("请输入验证码！");
             return;
         }
@@ -202,7 +204,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         if (json.optInt("err_no")==0){
                             finish();
                         }else {
-                            showToast("注册失败");
+                            showToast("注册失败"+json.optString("err_msg"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

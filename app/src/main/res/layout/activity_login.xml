@@ -7,9 +7,26 @@
     tools:context="com.mizhuan.app.mizhuan.view.activity.LoginActivity">
 
 
-    <include layout="@layout/include_common_topbar" />
-
+    <include
+        android:id="@+id/include_common_topbar"
+        layout="@layout/include_common_topbar" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/include_common_topbar"
+        android:padding="10dp"
+        android:layout_above="@+id/rl_content">
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_above="@+id/v_line"
+            android:src="@mipmap/ic_launcher_round"
+            />
+        </RelativeLayout>
     <LinearLayout
+        android:id="@+id/rl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -23,13 +40,16 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:inputType="phone"
+            android:background="@drawable/bg_et"
             android:hint="@string/phone" />
 
         <EditText
             android:id="@+id/et_password"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/password"
+            android:background="@drawable/bg_et"
             android:inputType="textPassword" />
 
 
@@ -40,6 +60,7 @@
             android:layout_height="50dp"
             android:background="@drawable/shape_corner_login"
             android:text="@string/login"
+            android:layout_marginTop="20dp"
             android:textColor="@color/white" />
     </LinearLayout>
 

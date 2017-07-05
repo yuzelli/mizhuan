@@ -19,6 +19,7 @@ import com.mizhuan.app.mizhuan.bean.Category;
 import com.mizhuan.app.mizhuan.bean.Product;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.mizhuan.app.mizhuan.utils.CommonAdapter;
 import com.mizhuan.app.mizhuan.utils.GsonUtils;
 import com.mizhuan.app.mizhuan.utils.ViewHolder;
@@ -49,6 +50,7 @@ public class CategoryActivity extends BaseActivity {
 
     @Override
     protected void binEvent() {
+        ActivityCollectorUtil.addActivity(this);
         context = this;
         handler = new CategoryHandler();
         iv_left = (ImageView) findViewById(R.id.iv_left);

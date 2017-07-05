@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mizhuan.app.mizhuan.R;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +27,7 @@ public class MyTextActivity extends BaseActivity {
 
     @Override
     protected void binEvent() {
-
+        ActivityCollectorUtil.addActivity(this);
     }
 
     @Override

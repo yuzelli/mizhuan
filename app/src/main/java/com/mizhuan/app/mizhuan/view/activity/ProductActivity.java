@@ -21,6 +21,7 @@ import com.mizhuan.app.mizhuan.adapter.ProductAdapter;
 import com.mizhuan.app.mizhuan.bean.Product;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.mizhuan.app.mizhuan.utils.CommonAdapter;
 import com.mizhuan.app.mizhuan.utils.GsonUtils;
 import com.mizhuan.app.mizhuan.utils.ViewHolder;
@@ -76,6 +77,7 @@ private String seach;
 
     @Override
     protected void binEvent() {
+        ActivityCollectorUtil.addActivity(this);
         handler = new ProductHandler();
         context = this;
         initTopBar();
@@ -214,7 +216,7 @@ private String seach;
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context,ProductDetailActivity.class);
-                intent.putExtra("TradeItemEsc",productDatas.get(position+1).getTradeItemEsc());
+                intent.putExtra("TradeItemEsc",productDatas.get(position-1).getTradeItemEsc());
                 startActivity(intent);
             }
         });

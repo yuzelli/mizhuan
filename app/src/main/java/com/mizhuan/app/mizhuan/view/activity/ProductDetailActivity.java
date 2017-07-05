@@ -19,6 +19,7 @@ import com.mizhuan.app.mizhuan.R;
 import com.mizhuan.app.mizhuan.bean.ProductDetial;
 import com.mizhuan.app.mizhuan.constants.ConstantsUtils;
 import com.mizhuan.app.mizhuan.https.OkHttpClientManager;
+import com.mizhuan.app.mizhuan.utils.ActivityCollectorUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -65,6 +66,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void binEvent() {
+        ActivityCollectorUtil.addActivity(this);
         iv_product = (ImageView) findViewById(R.id.iv_product);
         bt_turn_friendly = (Button) findViewById(R.id.bt_turn_friendly);
         handler = new ProDetailHandler();
@@ -207,13 +209,13 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         // 分享时Notification的图标和文字  2.5.9以后的版本不     调用此方法
         //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-        // oks.setTitle(getString(R.string.share));
+    //     oks.setTitle(proDetail.getTitle());
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-//        oks.setTitleUrl("http://sharesdk.cn");
+ //        oks.setTitleUrl("http://sharesdk.cn");
         // text是分享文本，所有平台都需要这个字段
-        oks.setText(proDetail.getTitle());
+         oks.setText(proDetail.getTitle());
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-         oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+         oks.setImagePath( Environment.getExternalStorageDirectory().getPath()+"/mizhuan"+"/"+"share.png");//确保SDcard下面存在此张图片
         // url仅在微信（包括好友和朋友圈）中使用
 //        oks.setUrl("http://sharesdk.cn");
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用

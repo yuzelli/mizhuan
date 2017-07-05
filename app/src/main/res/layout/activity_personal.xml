@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_personal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mizhuan.app.mizhuan.view.activity.PersonalActivity">
+    <include layout="@layout/include_common_topbar"/>
+
+    <Button
+        android:id="@+id/bt_exit_user"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_corner_login"
+        android:text="退出"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+         />
+
+</RelativeLayout>
